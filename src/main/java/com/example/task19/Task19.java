@@ -3,7 +3,7 @@ package com.example.task19;
 
 public class Task19 {
 
-    private static int randomIntegerSizeN(int n) { // (min; 0] [1; max]
+    public static int randomIntegerSizeN(int n) { // (min; 0] [1; max]
         if (n <= 0) {
             throw new RuntimeException("The size(n) is less or equal 0!");
         }
@@ -14,9 +14,9 @@ public class Task19 {
         for (; ; ) {
             a *= 10;
             rez = (int) a; // 1
-            if (rez <= Math.pow(10, n - 1) && rez >= (Math.pow(10, n) - 1))
+            if (rez >= Math.pow(10, n - 1) && rez <= (Math.pow(10, n) - 1))
                 break;
-            a *= 10;
+//            a *= 10;
         }
         return rez;
     }
@@ -29,13 +29,13 @@ public class Task19 {
         return (int) (Math.random() * (10 * n));
     }
 
-    public int[] createRangeOfRandomIntegerNumbers(int lengthOfArray,
-                                                   int numbers) {
+    public int[] createRangeOfRandomIntegerNumbers(int lengthOfArray, int numbers) {
         int[] randomIntegerNumbers = new int[lengthOfArray];
 
         for (int i = 0; i < randomIntegerNumbers.length; i++) {
             randomIntegerNumbers[i] = randomIntegerSizeN(numbers);
         }
+
         return randomIntegerNumbers;
     }
 }
