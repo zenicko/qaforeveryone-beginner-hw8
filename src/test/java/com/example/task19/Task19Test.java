@@ -31,10 +31,17 @@ class Task19Test {
                 l = 3,
                 d = 2;
 
+        int actualD;
         int[] actualResultArray = task19.createRangeOfRandomIntegerNumbers(l, d);
 
+        for (int i = 0; i < actualResultArray.length; i++) {
+            actualD = String.valueOf(actualResultArray[i]).length();
 
-        Assertions.assertEquals(l, actualResultArray.length);
+            Assertions.assertEquals(d, actualD);
+            Assertions.assertEquals(d, String.valueOf(actualResultArray[i]).length());
+
+            System.out.println(d + " " + actualResultArray[i]);
+        }
     }
 
 }
